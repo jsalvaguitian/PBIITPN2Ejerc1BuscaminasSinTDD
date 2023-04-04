@@ -1,0 +1,7 @@
+# Ignorar la carpeta bin donde se encuentra los .class, o sea los bytecode 
+bin
+
+# Ignorar todos los archivos .class
+*.class
+
+
