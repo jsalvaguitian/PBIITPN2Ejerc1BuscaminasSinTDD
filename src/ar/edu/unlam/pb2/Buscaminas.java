@@ -217,4 +217,27 @@ public class Buscaminas {
 	}
 
 
+
+	public boolean consultarElEstadoDelJugador() {
+		int casillerosEnTotalALiberar = (this.tableroBack.length * this.tableroBack[0].length) - this.minas;
+		if(this.obtenerCantidadDeCasillerosLiberados() == casillerosEnTotalALiberar)
+			return true;
+		
+		return false;
+	}
+
+
+
+	private int obtenerCantidadDeCasillerosLiberados() {
+		int cantidadDeCasillerosLiberados = 0;
+		for(int i=0; i<this.tableroFront.length; i++) {
+			for(int j=0; j<this.tableroFront[i].length; j++) {
+				if(this.tableroFront[i][j]!='\0')
+					cantidadDeCasillerosLiberados++;
+			}
+		}
+		return cantidadDeCasillerosLiberados;
+	}
+
+
 }

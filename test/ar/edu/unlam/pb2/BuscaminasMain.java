@@ -13,6 +13,7 @@ public class BuscaminasMain {
 		int opcion;
 		double casillero;
 		boolean inicio = true;
+		boolean isWinner = false;
 		char continuar = 's';
 		int fila=0, columna=0;
 		boolean estaGanando = true;
@@ -65,6 +66,8 @@ public class BuscaminasMain {
 				}else {
 					if(!buscaminas.consultarHayMinaEn(fila,columna)) {
 						buscaminas.guardarLaCantidadDeBombasQueHayAlrededor(fila, columna);
+						isWinner = buscaminas.consultarElEstadoDelJugador();
+
 					}else {
 						estaGanando = false;
 					}
@@ -75,14 +78,17 @@ public class BuscaminasMain {
 				System.out.println(buscaminas.mostrarTableroBack());
 				
 				
-			}while(!buscaminas.consultarHayMinaEn(fila,columna));
-			System.out.println("Perdiste");
+			}while(!buscaminas.consultarHayMinaEn(fila,columna) && !isWinner);
 			
+			if(buscaminas.consultarHayMinaEn(fila,columna))
+				System.out.println("Perdiste, la proxima será ¯\\_(ツ)_/¯");
+			if(isWinner)
+				System.out.println("Maravilloso! Ganaste genio/a ＼(^o^)／!!!");
 			
-			
-			//-----------FIN -------------------------
+			//-----------FIN? -------------------------
 			inicio = true;
 			estaGanando = true;
+			isWinner = false;
 			System.out.println("¿Desea continuar? (s/n)");
 			continuar = teclado.next().toLowerCase().charAt(0);
 			

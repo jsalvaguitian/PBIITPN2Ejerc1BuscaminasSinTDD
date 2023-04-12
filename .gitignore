@@ -1,7 +1,11 @@
 # Ignorar la carpeta bin donde se encuentra los .class, o sea los bytecode 
-bin
+/bin/
+/.settings
 
 # Ignorar todos los archivos .class
 *.class
+*.classpath
+*.proyect
+
 
 
